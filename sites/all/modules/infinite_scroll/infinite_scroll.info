@@ -1,0 +1,4 @@
+name = Infinite Scroll
+description = Infinite scroll for the blog roll
+core = 7.x
+package = Cirro

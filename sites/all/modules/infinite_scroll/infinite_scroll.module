@@ -1,0 +1,131 @@
+<?php
+
+/**
+ * @file
+ *   Infinite Scroll
+ */
+
+/**
+ * Implements hook_menu()
+ */
+function infinite_scroll_menu() {
+	
+	// Init
+	$items = array();
+	
+	$items['scroller/%'] = array(
+		'page callback' => 'infinite_scroll_page',
+		'page arguments' => array(1),
+		'access arguments' => array('access content')
+	);
+	return $items;
+}
+
+
+/**
+ * Build Infinite Scrolling Structure
+ *
+ * @args passes range of blog posts to return
+ */
+function infinite_scroll_page($range) {
+
+	// Init
+	$html = '';
+	$items = '';
+	
+	if ( $range === 'count' ) {
+		
+		$count_query = new EntityFieldQuery();
+		
+		$count = $count_query
+			->entityCondition('entity_type', 'node', '=')
+			->propertyCondition('type', 'blog', '=')
+			->count()
+			->execute();
+			
+		drupal_json_output(array('count'=>$count));
+		
+		return;
+	
+	}
+	
+	
+	
+	
+	$explode = explode('-', $range);
+	$start = $explode[0];
+	$end = $explode[1];
+	
+	// Load blog nids
+	$blog_query = new EntityFieldQuery();
+	
+	$blog_query
+		->entityCondition('entity_type', 'node', '=')
+		->propertyCondition('type', 'blog', '=')
+		->propertyOrderBy('created', 'DESC');
+
+	$blog_query->range($start, $end);
+		
+	$blog_result = $blog_query->execute();
+	
+	// Init blogs array
+	$blogs = array();
+	
+	// Load blog nodes into array
+	foreach($blog_result['node'] as $nid => $node) {
+	
+		$blogs[$node->nid] = node_load($nid);
+		
+	}
+
+	//dsm($blogs);
+	
+	
+	// Loop works
+	foreach ($blogs as $item)	{
+		
+		node_build_content($item);
+
+		$title = $item->title;
+		$created = $item->created;
+		$body = $item->body['und'][0]['safe_value'];
+		$img = drupal_render($item->content['field_blog_images']);
+					
+
+		$items .= "<div class=\"span8 offset2 blog-iso-item\">
+							<p><h2>$title</h2></p>
+							<div class=\"blog_images\">$img</div>
+							<div class=\"item-body\">$body</div>
+							<div class=\"created\">$created</div>
+							<div>
+								<a href=\"https://twitter.com/share\" 
+									class=\"twitter-share-button\" 
+									data-via=\"twitterapi\" 
+									data-lang=\"en\">Tweet
+								</a>
+							</div>
+							<div class=\"fb-like\" 
+								data-href=\"http://dev.loc/node/{$item->nid}\" 
+								data-send=\"false\" 
+								data-layout=\"button_count\" 
+								data-width=\"450\" 
+								data-show-faces=\"false\" 
+								data-font=\"arial\">
+							</div>
+							</div>
+						</div>"; 
+		
+	} // end foreach
+
+	// Create the final markup
+	$html = "
+		<div id=\"iso-container\">
+			<div class=\"row\">
+				$items
+			</div>
+		</div>
+	";
+	
+	return $html;
+	
+}

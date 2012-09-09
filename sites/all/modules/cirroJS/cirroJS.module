@@ -1,0 +1,247 @@
+
+<?php
+/**
+* @file
+*
+*Add js to $scripts
+*
+*/
+
+/**
+ * Implements hook_help().
+ *
+ * Displays help and module information.
+ *
+ * @param path 
+ *   Which path of the site we're using to display help
+ * @param arg 
+ *   Array that holds the current path as returned from arg() function
+ */
+function cirroJS_help($path, $arg) {
+  switch ($path) {
+    case "admin/help#cirroJS":
+      return '<p>'.  t("Adds external JS to pages using hook_init and drupal_add_js") .'</p>';
+      break;
+  }
+}
+
+/**
+ * Implements hook_permission().
+ *
+ */
+function cirroJS_permission() {
+  return array(
+    'cirroJS Config' => array(
+      'title' => t('cirroJS Configuration'),
+      'description' => t('Access cirroJS configuration page.'),
+    ),
+	);
+}
+
+/**
+ * Implements hook_menu().
+ */
+function cirroJS_menu() {
+  $items = array();  
+
+  $items['admin/config/user-interface/cirroJS'] = array(
+    'title' => 'cirroJS',
+    'description' => 'Configuration for cirroJS module',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('cirroJS_config_form'),
+    'access arguments' => array('cirroJS Config'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  
+  return $items;
+} 
+
+/**
+ * Form function, called by drupal_get_form() 
+ * in cirroJS_menu().
+ */
+function cirroJS_config_form($form, &$form_state) {
+	// Get js dir path
+	$jsdp = drupal_get_path('module', 'cirroJS').'/js';
+
+	// Load js dir handle
+	$jsdh = @opendir($jsdp) or die("Unable to open $path");
+	
+	// Init exists array
+	$exists = array();
+	
+	// Go through js folder
+	while (false !== ($file = readdir($jsdh))) 
+		{
+    	
+    	// Ignore system files
+			if($file!="." && $file!="..")
+			{
+			
+				// Create safe file name string
+				$sfile = str_replace('.', '_', $file);
+
+				// Add file to exists array.
+				$exists[$file] = $sfile;
+				
+				// Create fieldset
+				$form['cirroJS_'.$sfile] = array(
+					'#type' => 'fieldset',
+					'#title' => $file,
+					'#collapsible' => TRUE,
+					'#collapsed' => TRUE,
+				);
+				
+				// Select where to add files.
+			  $form['cirroJS_'.$sfile]['cirroJS_'.$sfile.'_select'] = array(
+			    '#type' => 'radios',
+			    '#default_value' => variable_get('cirroJS_'.$sfile.'_select', $default = 'none'),
+			    '#options' => array(
+			    	'all' => t('All pages'),
+			    	'listed' => t('Only listed pages'),
+			    	'notlisted' => t('All pages except those listed'),
+			    	'none' => t('none'),
+					),
+			  );
+			
+				
+				// Text area to list paths for listed/unlisted select options.
+				$form['cirroJS_'.$sfile]['cirroJS_'.$sfile.'_pages'] = array(
+			    '#type' => 'textarea',
+			    '#rows' => 3,
+			    '#default_value' => variable_get('cirroJS_'.$sfile.'_pages', $default = NULL),
+					'#description' => t('Specify pages by using their paths each path separated by spaces.'),
+			  );
+					
+      }// end ignore system files
+    }// end while
+    
+	//closing the directory
+	closedir($jsdh);
+	
+	// Set exists array
+	variable_set('cirroJS_exists', $exists);
+  
+  // Standard system config. Element states available elsewhere via variable_get.
+  return system_settings_form($form);
+}
+
+
+/**
+* Implements hook_init().
+*
+*	Add js files to pages as specified by config settings.
+*
+*/
+function cirroJS_init() {
+	
+	$exists = variable_get('cirroJS_exists', $default = array());
+	
+	foreach ($exists as $file => $sfile)
+	{
+		// Get page option setting.
+		$s = variable_get('cirroJS_'.$sfile.'_select', $default = 'none');
+	
+		// Add files according to setting.
+		switch ($s)
+		{
+			// If 'All Pages' is selected.
+			case "all":
+				// Add to all pages.
+				drupal_add_js(drupal_get_path('module', 'cirroJS') .'/js/'.$file);
+				break;
+			
+			// If 'Only Listed' is selected.
+			case "listed":
+			
+				// Get path of current page being rendered.
+				$cp = drupal_get_destination();
+				$cp = $cp['destination'];
+				
+				// Get list of paths from config and put into array.
+				$p = variable_get('cirroJS_'.$sfile.'_pages', $default = NULL);
+				$p = explode(" ", $p);
+				
+				// Test if current page path is in array of paths.
+				if(in_array($cp, $p)) 
+				{
+					// Add to page.
+					drupal_add_js(drupal_get_path('module', 'cirroJS') .'/js/'.$file);
+				}
+				
+				// Test if current page path is front page AND if <front> is listed
+				if(in_array('<front>', $p) && drupal_is_front_page()) 
+				{
+					// Add to page.
+					drupal_add_js(drupal_get_path('module', 'cirroJS') .'/js/'.$file);
+				}
+				
+								// Test if wildcard in paths array
+				foreach($p as $list_path) {
+					$wild_path = '';
+					$cp_trim = '';
+					
+					// If path has wildcard * on end
+					if((substr($list_path, -1)) == '*') {
+						// Remove * from end of path
+						$wild_path = substr($list_path, 0, -1);
+						
+						// Trim current path to match wild path length
+						$cp_trim = substr($cp, 0, (strlen($wild_path)));
+						
+						// If wild path and trimmed current path match
+						if($wild_path == $cp_trim) {
+							// Add to page.
+							drupal_add_js(drupal_get_path('module', 'cirroJS') .'/js/'.$file);						}
+					}
+				}
+				
+				break;
+			
+			// If 'Except listed' is selected.
+			case "notlisted":
+
+				// Get list of paths from config and put into array.
+				$p = variable_get('cirroJS_'.$sfile.'_pages', $default = NULL);
+				$p = explode(" ", $p);
+			
+				// BREAK if current page is front page AND if <front> is listed
+				if(in_array('<front>', $p) && drupal_is_front_page()) 
+				{
+					break;
+				}
+			
+				// Get path of current page being rendered.
+				$cp = drupal_get_destination();
+				$cp = $cp['destination'];
+				
+				// Test if wildcard in paths array
+				foreach($p as $list_path) {
+					$wild_path = '';
+					$cp_trim = '';
+					
+					// If path has wildcard * on end
+					if((substr($list_path, -1)) == '*') {
+						// Remove * from end of path
+						$wild_path = substr($list_path, 0, -1);
+						
+						// Trim current path to match wild path length
+						$cp_trim = substr($cp, 0, (strlen($wild_path)));
+						
+						// If wild path and trimmed current path match
+						if($wild_path == $cp_trim) {
+							break(2);
+						}
+					}
+				}
+				
+				// Test if current page path is NOT in array of paths.
+				if(!in_array($cp, $p)) 
+				{
+					// Add to page
+					drupal_add_js(drupal_get_path('module', 'cirroJS') .'/js/'.$file);
+				}
+				break;
+		} // end switch
+	} // end foreach
+}
