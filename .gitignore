@@ -1,7 +1,6 @@
+# Ignore .htaccess as it may differ on dev environments
+.htaccess
 # Ignore configuration files that may contain sensitive information.
-sites/*/settings*.php
-settings/*
-
-# Ignore paths that contain user-generated content.
-sites/*/files
-sites/*/private
+settings.php
+# Ignore SASS cache files
+.sass-cache*
