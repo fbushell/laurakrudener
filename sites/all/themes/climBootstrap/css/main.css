@@ -1386,6 +1386,7 @@ span.element-invisible, h2.element-invisible { display: none; }
 .page-user .form-actions { margin-top: 0; margin-bottom: 0; background-color: transparent; border-top: none; padding: 0; }
 .page-user label, .page-user .description { display: none; }
 
+#footer { position: absolute; bottom: 0; }
 #footer #social-wrap { padding: 10px 0; background: white; }
 #footer #social-wrap ul#social { margin: 0; text-align: center; }
 #footer #social-wrap ul#social li { list-style: none; display: inline; margin: 0 0 0 15px; }
