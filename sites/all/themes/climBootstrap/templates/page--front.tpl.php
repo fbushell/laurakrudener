@@ -20,6 +20,7 @@
   <div id="content">
     <?php print $messages; ?>
     <?php include('iso.inc'); ?>
+  </div>
 </div>
 
 <footer id="footer">
