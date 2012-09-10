@@ -17,9 +17,23 @@
       $html = '';
       $title = $node->title;
       $body = $node->body['und'][0]['value'];
-      if ( isset( $node->field_height['und'][0]['value'] ) ? $height = $node->field_height['und'][0]['value'] : '' );
-      if ( isset( $node->field_width['und'][0]['value'] ) ?  $width = $node->field_width['und'][0]['value'] : '');
-      $dimensions = "<p><div id=\"dimensions\">$width X $height</div><p>";
+      
+      if ( isset( $node->field_height['und'][0]['value'] ) ) {
+	      
+	      $height = $node->field_height['und'][0]['value'];
+	      $width = $node->field_width['und'][0]['value'];
+	      $dimensions = "<p><div id=\"dimensions\">$width X $height</div><p>";
+	      
+      } else {
+	      
+	      $height = '';
+	      $width = '';
+	      $dimensions = '';
+	      
+      }
+      
+      
+     
       $year = $node->field_work_year['und'][0]['value'];
       $add_images_final= '';
       
