@@ -3,7 +3,7 @@
 	 <div class="row">
     <div class="span6"> 
     	<div id="logo">
-	      <img src="/sites/all/themes/climBootstrap/images/login_logo.png"/>
+	      <img src="/sites/all/themes/climBootstrap/images/logo.png"/>
 	    </div>
   	</div>
 

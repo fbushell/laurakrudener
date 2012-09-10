@@ -17,7 +17,7 @@
 
 
 <div id="iso-container">
-	<div class="row">
+	<div class="row-fluid">
 	
 	<?php 
 
@@ -42,7 +42,7 @@
 		
 		//build html for work item
 		$work_item = "
-			<div class=\"$type\">$img</div>
+			<div class=\"$type work-item\">$img</div>
 		";
 		
 

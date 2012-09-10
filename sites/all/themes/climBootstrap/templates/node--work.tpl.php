@@ -10,22 +10,27 @@
 
       global $base_url;
 
+      //$node = node_load($node->nid); 
+      //$node_build = node_build_content($node);
+
       // Init
       $html = '';
-      $add_images_final = '';
-
-
-      $node = node_load($node->nid); 
-      $node_build = node_build_content($node);
-
       $title = $node->title;
-      $title_final = "<h3>$title</h3>";
       $body = $node->body['und'][0]['value'];
       $height = $node->field_height['und'][0]['value'];
       $width = $node->field_width['und'][0]['value'];
       $dimensions = "<p><div id=\"dimensions\">$width X $height</div><p>";
+      $year = $node->field_work_year['und'][0]['value'];
+      $add_images_final= '';
+      
+      $work_info = "
+      	<div class=\"work-info\">
+      		<div class=\"work-title\"><h3>$title, $year</h3></div> 
+      		<div class=\"details\"$dimensions</div> 
+      		<div>$body</div>
+      	</div>
+      ";
 
-      //$img = drupal_render($node->content['field_main_image']);
       $img_field = $node->field_main_image['und'][0]['filename'];
       $img_path = $base_url . '/sites/default/files/files/paintings/' . $img_field;
       $img_final = "
@@ -34,10 +39,13 @@
         </div>
       ";
 
-      //$add_images = drupal_render($node->content['field_add_images']);
-      $alt_img_field = $node->field_add_images['und'];
 
-      foreach ($alt_img_field as $key) {
+      // Loop through aditional images if they exist
+      if ( isset( $node->field_add_images['und'] ) ) {
+	      
+	      $alt_img_field = $node->field_add_images['und'];
+	      
+	      foreach ($alt_img_field as $key) {
         
         $alt_img_path = $base_url . '/sites/default/files/files/paintings/' . $key['filename'];
 
@@ -48,16 +56,24 @@
         ";
 
       }
-      
-      //dpr($alt_img_path);
+	      
+      } else {
+	      
+	      $alt_img_field = '';
+	      
+	      $add_images_final = '';
+	      
+      }
 
-      $html = $title_final . $body . $dimensions . $img_final . $add_images_final;
+      
+      // Final html output
+      $html = $work_info . $img_final . $add_images_final;
 
       print $html;
 
       ?>
-  	  <?php //print render($content); ?>
+      
   	</div>
         
-	</div> <!-- /node-inner -->
-</article> <!-- /node-->
+	</div>
+</article>

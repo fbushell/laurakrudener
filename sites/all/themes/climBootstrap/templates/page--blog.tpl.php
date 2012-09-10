@@ -1,29 +1,38 @@
 <div class="navbar">
-	<div class="navbar-inner">
-		<div class="container">
-			<div class="row">
-				<div class="span5">
-			    <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
-			      <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>"/>
-			    </a>
-		    </div>
-		    <div id="nav-region">
-					<ul id="iso-filters">
-						<li><a href="#" class="selected" data-filter="*">all</a></li>
-						<li><a href="#paintings" data-filter=".painting">paintings</a></li>
-						<li><a href="#drawings" data-filter=".drawing">drawings</a></li>
-						<li><a>/</a></li>
-					</ul>
-					<?php print render($page['header']); ?>
-				</div>
-    	</div>
-  	</div>
+	<div id="logo" class="center">
+    <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home">
+      <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>"/>
+    </a>
+	</div>
+
+  <div id="nav-region" class="center">
+		<ul id="iso-filters">
+			<li><a href="/">works</a></li>
+			<li><a>/</a></li>
+		</ul>
+		<?php print render($page['header']); ?>
 	</div>
 </div>
 	
 <div class="container" class="<?php print $classes; ?>"<?php print $attributes; ?>>
   <div id="content">
     <?php print $messages; ?>
-    <div id="scroller"></div>
+    <?php include('blog.inc'); ?>
+    <!--<div id="scroller"></div>-->
   </div> 	
 </div> 
+
+<footer id="footer">
+  <div id="social-wrap">
+	 <div id="social-wrap">
+  		<ul id="social">
+        <li><a href="http://on.fb.me/RuJoOq"><img src="/sites/all/themes/climBootstrap/images/social/facebook_icon.png" target="_blank"></a></li>
+        <li><a href="http://bit.ly/TA7qIz"><img src="/sites/all/themes/climBootstrap/images/social/pinterest_icon.png" target="_blank"></a></li>
+        <li><a href="#"><img src="/sites/all/themes/climBootstrap/images/social/vimeo_icon.png" target="_blank"></a></li>
+        <li><a href="http://bit.ly/P6It3r"><img src="/sites/all/themes/climBootstrap/images/social/instagram_icon.png" target="_blank"></a></li>
+        <li><a href="http://bit.ly/NjJLcN"><img src="/sites/all/themes/climBootstrap/images/social/twitter_icon.png" target="_blank"></a></li>
+        <li><a href="mailto:laura@laurakrudener.com"><img src="/sites/all/themes/climBootstrap/images/social/email_icon.png" target="_blank"></a></li>
+       </ul>
+  	</div>
+  </div>
+</footer>
