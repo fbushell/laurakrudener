@@ -23,7 +23,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 .input-block-level { display: block; width: 100%; min-height: 28px; /* Make inputs at least the height of their button counterpart */ /* Makes inputs behave like true block-level elements */ -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; box-sizing: border-box; }
 
-body { margin: 0; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 13px; line-height: 18px; color: #333333; background: white; position: relative; }
+body { margin: 0; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 13px; line-height: 18px; color: #333333; background: white; }
 
 #splash { background: white; position: absolute; height: 100%; width: 100%; z-index: 1000; }
 #splash img { margin: 30% auto 0 auto; }
@@ -1386,7 +1386,6 @@ span.element-invisible, h2.element-invisible { display: none; }
 .page-user .form-actions { margin-top: 0; margin-bottom: 0; background-color: transparent; border-top: none; padding: 0; }
 .page-user label, .page-user .description { display: none; }
 
-#footer { position: absolute; bottom: 0; }
 #footer #social-wrap { padding: 10px 0; background: white; }
 #footer #social-wrap ul#social { margin: 0; text-align: center; }
 #footer #social-wrap ul#social li { list-style: none; display: inline; margin: 0 0 0 15px; }
