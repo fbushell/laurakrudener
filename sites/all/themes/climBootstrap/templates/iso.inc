@@ -5,6 +5,7 @@
 	$work_query->EntityCondition('entity_type', 'node')
 						 ->EntityCondition('bundle', 'work', '=')
 						 ->propertyOrderBy('created', 'DESC');
+						 
 	$work_results = $work_query->execute();
 
 	// Load work nodes into works array
@@ -23,18 +24,30 @@
 	
 	// Init
 	$type_field = '';
+	$type = '';
 
 	// Loop works
 	foreach ($works as $work)	{
 		
 		node_build_content($work);
 		
-		//dsm($work);
 
 		$work_nid = $work->nid;
 		$work_title = $work->title;
-		if ( isset($work->field_work_type['und'][0]['value'])  ? $type = $work->field_work_type['und'][0]['value'] : '');
-		$type = $type_field ? 'painting' : 'drawing';
+		$type_field = $work->field_work_type['und'][0]['value'];
+
+		// Switch on the type field		
+		switch ($type_field) {
+	    case 'painting':
+	        $type = 'painting';
+	        break;
+	    case 'drawing':
+	        $type = 'drawing';
+	        break;
+	    case 'interior':
+	        $type = 'interior';
+	        break;
+	  }
 	  
 	  $img_styled = '';
 	  
@@ -74,6 +87,8 @@
 
 
 		print $item; 
+		
+		//dsm($item);
 		
 	} // end foreach
 		

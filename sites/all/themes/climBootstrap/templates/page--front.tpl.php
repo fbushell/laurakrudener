@@ -8,8 +8,9 @@
   <div id="nav-region" class="center">
 		<ul id="iso-filters">
 			<li><a href="#" class="selected" data-filter="*">all</a></li>
-			<li><a href="#paintings" data-filter=".painting">paintings</a></li>
-			<li><a href="#drawings" data-filter=".drawing">drawings</a></li>
+			<li><a href="#painting" data-filter=".painting">paintings</a></li>
+			<li><a href="#drawing" data-filter=".drawing">drawings</a></li>
+			<li><a href="#interior" data-filter=".interior">interior</a></li>
 			<li><a>/</a></li>
 		</ul>
 		<?php print render($page['header']); ?>
@@ -18,7 +19,14 @@
 	
 <div class="container-fluid" class="<?php print $classes; ?>"<?php print $attributes; ?>>
   <div id="content">
-    <?php print $messages; ?>
+  
+    <?php if ( $user->name === 'admin' ) {
+	    
+	    print $messages;
+	    
+    } ?>
+    
+    
     <?php include('iso.inc'); ?>
   </div>
 </div>

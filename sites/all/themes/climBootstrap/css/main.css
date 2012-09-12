@@ -1033,7 +1033,7 @@ span.element-invisible, h2.element-invisible { display: none; }
 
 .tooltip-arrow { position: absolute; width: 0; height: 0; }
 
-.navbar { margin: 70px 18px; }
+.navbar { margin: 40px 18px 60px 18px; }
 
 .navbar .nav { position: relative; left: 0; display: block; float: left; margin: 0 10px 0 0; }
 
@@ -1371,7 +1371,7 @@ span.element-invisible, h2.element-invisible { display: none; }
 
 #un { float: right; font-size: 11px; color: white; padding: 11px 0 0 0; margin: 0 0 0 10px; }
 
-.front #nav-region { width: 370px; }
+.front #nav-region { width: 409px; }
 
 #nav-region { width: 270px; margin-top: 20px; }
 #nav-region ul#iso-filters { float: left; overflow: hidden; }
