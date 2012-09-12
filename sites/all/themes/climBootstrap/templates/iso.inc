@@ -20,17 +20,41 @@
 	<div class="row-fluid">
 	
 	<?php 
+	
+	// Init
+	$type_field = '';
 
 	// Loop works
 	foreach ($works as $work)	{
 		
 		node_build_content($work);
+		
+		//dsm($work);
 
 		$work_nid = $work->nid;
 		$work_title = $work->title;
-		$type_field = $work->field_work_type['und'][0]['value'];
+		if ( isset($work->field_work_type['und'][0]['value'])  ? $type = $work->field_work_type['und'][0]['value'] : '');
 		$type = $type_field ? 'painting' : 'drawing';
-		$img = drupal_render($work->content['field_main_image']);
+	  
+	  $img_styled = '';
+	  
+				// image info
+				$img_width = $work->field_main_image['und'][0]['width'];
+				$img_height = $work->field_main_image['und'][0]['height'];
+				$img_uri = $work->field_main_image['und'][0]['uri'];
+			  
+			  // Load image vars
+			  $img_vars = array(
+			  	'style_name' => 'isotope',
+			  	'path' => $img_uri,
+			  	'alt' => '',
+			  	'title' => '',
+			  	'width' => $img_width,
+			  	'height' => $img_height,
+			  );
+			  
+			  // Theme/style image
+			  $img_styled =  theme_image_style($img_vars);
 
 		// Build item with <a> wrapper
 		$options = array(
@@ -42,7 +66,7 @@
 		
 		//build html for work item
 		$work_item = "
-			<div class=\"$type work-item\">$img</div>
+			<div class=\"$type work-item\">$img_styled</div>
 		";
 		
 
