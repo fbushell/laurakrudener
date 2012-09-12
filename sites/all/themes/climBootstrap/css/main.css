@@ -36,7 +36,7 @@ a:hover { color: #231f20; text-decoration: none; }
 
 a.selected, a:active, a.active { color: #231f20; }
 
-.container { margin-left: auto; margin-right: auto; *zoom: 1; padding: 20px 0 80px 0; }
+.container { margin-left: auto; margin-right: auto; *zoom: 1; padding: 0 0 80px 0; }
 .container:before, .container:after { display: table; content: ""; }
 .container:after { clear: both; }
 
@@ -1391,7 +1391,7 @@ span.element-invisible, h2.element-invisible { display: none; }
 #footer #social-wrap ul#social li { list-style: none; display: inline; margin: 0 0 0 15px; }
 #footer #social-wrap ul#social li img { height: 15px; width: 21px; }
 
-.work-info { margin-bottom: 30px; }
+.work-info { margin-bottom: 20px; }
 
 #iso-container { margin-left: -10px; display: none; }
 #iso-container a.iso-item { width: 275px; height: 275px; display: block; margin: 0 0 10px 10px; z-index: 10; overflow: hidden; }
