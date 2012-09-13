@@ -10,8 +10,10 @@
 
 	// Load work nodes into works array
 	$works = array();
-	foreach($work_results['node'] as $nid => $node) {
+	foreach( $work_results['node'] as $nid => $node ) {
+	
 		$works[$node->nid] = node_load($nid);
+		
 	}
 
 ?>
@@ -26,11 +28,14 @@
 	$type_field = '';
 	$type = '';
 
+	
+	// Shuffle works array
+	shuffle($works);
+
 	// Loop works
 	foreach ($works as $work)	{
 		
 		node_build_content($work);
-		
 
 		$work_nid = $work->nid;
 		$work_title = $work->title;
