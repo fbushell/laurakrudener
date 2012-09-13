@@ -1371,7 +1371,7 @@ span.element-invisible, h2.element-invisible { display: none; }
 
 #un { float: right; font-size: 11px; color: white; padding: 11px 0 0 0; margin: 0 0 0 10px; }
 
-.front #nav-region { width: 411px; }
+.front #nav-region { width: 418px; }
 
 #nav-region { width: 270px; margin-top: 20px; }
 #nav-region ul#iso-filters { float: left; overflow: hidden; }

@@ -26,12 +26,12 @@
   <div id="social-wrap">
 	 <div id="social-wrap">
   		<ul id="social">
-        <li><a href="http://on.fb.me/RuJoOq"><img src="/sites/all/themes/climBootstrap/images/social/facebook_icon.png" target="_blank"></a></li>
-        <li><a href="http://bit.ly/TA7qIz"><img src="/sites/all/themes/climBootstrap/images/social/pinterest_icon.png" target="_blank"></a></li>
-        <li><a href="#"><img src="/sites/all/themes/climBootstrap/images/social/vimeo_icon.png" target="_blank"></a></li>
-        <li><a href="http://bit.ly/P6It3r"><img src="/sites/all/themes/climBootstrap/images/social/instagram_icon.png" target="_blank"></a></li>
-        <li><a href="http://bit.ly/NjJLcN"><img src="/sites/all/themes/climBootstrap/images/social/twitter_icon.png" target="_blank"></a></li>
-        <li><a href="mailto:laura@laurakrudener.com"><img src="/sites/all/themes/climBootstrap/images/social/email_icon.png" target="_blank"></a></li>
+        <li><a href="http://on.fb.me/RuJoOq" TARGET="_blank"><img src="/sites/all/themes/climBootstrap/images/social/facebook_icon.png"></a></li>
+        <li><a href="http://bit.ly/TA7qIz" TARGET="_blank"><img src="/sites/all/themes/climBootstrap/images/social/pinterest_icon.png"></a></li>
+        <li><a href="http://www.vimeo.com/laurakrudener" TARGET="_blank"><img src="/sites/all/themes/climBootstrap/images/social/vimeo_icon.png"></a></li>
+        <li><a href="http://bit.ly/P6It3r" TARGET="_blank"><img src="/sites/all/themes/climBootstrap/images/social/instagram_icon.png" ></a></li>
+        <li><a href="http://bit.ly/NjJLcN" TARGET="_blank"><img src="/sites/all/themes/climBootstrap/images/social/twitter_icon.png"></a></li>
+        <li><a href="mailto:laura@laurakrudener.com" TARGET="_blank"><img src="/sites/all/themes/climBootstrap/images/social/email_icon.png"></a></li>
        </ul>
   	</div>
   </div>

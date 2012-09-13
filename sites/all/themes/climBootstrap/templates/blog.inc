@@ -18,8 +18,6 @@
 		$blogs[$node->nid] = node_load($nid);
 	}
 	
-	global $base_url;
-	
 
 ?>
 	
@@ -33,7 +31,7 @@
 			
 			// Get full url       
 		  $alias = drupal_lookup_path('alias', 'node/' . $nid); 
-		  $url = $base_url . '/' . $alias;
+		  $url = 'http://laurakrudener.com/' . $alias;
 			
 			node_build_content($item);
 
@@ -44,9 +42,10 @@
 			
 			// Load filename for pinterest
 			$img_field = $item->field_blog_images['und'][0]['filename'];
+			$base_url = 'http://laurakrudener.com';
+			$img_uri = $item->field_blog_images['und'][0]['uri'];
       $img_path = $base_url . '/sites/default/files/styles/blog/public/' . $img_field;
-						
-
+			
 			$item = "
 				<div class=\"span8 offset2 blog-iso-item\">
 					<h3>$title</h3>
@@ -72,7 +71,7 @@
 						</div>
 						
 						<div class=\"social-btn-blog\">
-							<a href=\"http://pinterest.com/pin/create/button/?url=$url&media=$img_path&description=$title\" 
+							<a href=\"http://pinterest.com/pin/create/button/?url=$img_uri&media=$img_path&description=$title\" 
 								class=\"pin-it-button\" 
 								count-layout=\"horizontal\">
 								<img border=\"0\" src=\"//assets.pinterest.com/images/PinExt.png\" title=\"Pin It\" />
