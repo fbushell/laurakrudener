@@ -30,6 +30,8 @@
   .visible-desktop { display: none; } }
 @media (max-width: 480px) { .nav-collapse { -webkit-transform: translate3d(0, 0, 0); }
   .page-header h1 small { display: block; line-height: 18px; }
+  input[class*="span"], select[class*="span"], textarea[class*="span"], .uneditable-input { display: block; width: 100%; min-height: 28px; /* Make inputs at least the height of their button counterpart */ /* Makes inputs behave like true block-level elements */ -webkit-box-sizing: border-box; /* Older Webkit */ -moz-box-sizing: border-box; /* Older FF */ -ms-box-sizing: border-box; /* IE8 */ box-sizing: border-box; /* CSS3 spec */ }
+  .input-prepend input[class*="span"], .input-append input[class*="span"] { width: auto; }
   input[type="checkbox"], input[type="radio"] { border: 1px solid #cccccc; }
   .form-horizontal .control-group > label { float: none; width: auto; padding-top: 0; text-align: left; }
   .form-horizontal .controls { margin-left: 0; }
@@ -38,9 +40,15 @@
   .modal { position: absolute; top: 10px; left: 10px; right: 10px; width: auto; margin: 0; }
   .modal.fade.in { top: auto; }
   .modal-header .close { padding: 10px; margin: -10px; }
-  .carousel-caption { position: static; } }
-@media (max-width: 767px) { body { padding-left: 20px; padding-right: 20px; }
-  .navbar-fixed-top { margin-left: -20px; margin-right: -20px; } }
+  .carousel-caption { position: static; }
+  .node-page .field-name-field-basic-image { display: none; }
+  #iso-container a.iso-item { width: 100%; height: auto; margin-bottom: 10px; }
+  #iso-container a.iso-item img { width: 100%; } }
+@media (max-width: 767px) { .container { width: auto; padding: 0 20px; }
+  .row-fluid { width: 100%; }
+  .row { margin-left: 0; }
+  .row > [class*="span"], .row-fluid > [class*="span"] { float: none; display: block; width: auto; margin: 0; }
+  .front #nav-region { width: 270px; } }
 @media (min-width: 768px) and (max-width: 979px) { .row { margin-left: -20px; *zoom: 1; }
   .row:before, .row:after { display: table; content: ""; }
   .row:after { clear: both; }

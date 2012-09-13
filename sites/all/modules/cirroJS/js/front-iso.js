@@ -3,11 +3,8 @@
   Drupal.behaviors.frontIso = {
     attach: function (context, settings) {  
 		
+		
 			$(window).load(function(){
-
-					var $splash = $('div#splash');
-
-					$splash.delay(500).fadeOut('fast');
 
 				// cache container
 				var $container = $('#iso-container');
@@ -40,6 +37,9 @@
 				});
 				
 			});
+			
+			
+			
 		}
   }
 }(jQuery));

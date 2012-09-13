@@ -7,10 +7,11 @@
 
   <div id="nav-region" class="center">
 		<ul id="iso-filters">
-			<li><a href="#" class="selected" data-filter="*">all</a></li>
-			<li><a href="#painting" data-filter=".painting">paintings</a></li>
-			<li><a href="#drawing" data-filter=".drawing">drawings</a></li>
-			<li><a href="#interior" data-filter=".interior">interior</a></li>
+			<li class="hidden-phone"><a href="#" class="selected" data-filter="*">all</a></li>
+			<li class="hidden-phone"><a href="#painting" data-filter=".painting">paintings</a></li>
+			<li class="hidden-phone"><a href="#drawing" data-filter=".drawing">drawings</a></li>
+			<li class="hidden-phone"><a href="#interior" data-filter=".interior">interior</a></li>
+			<li class="visible-phone"><a href="/" class="active">works</a></li>
 			<li><a>/</a></li>
 		</ul>
 		<?php print render($page['header']); ?>

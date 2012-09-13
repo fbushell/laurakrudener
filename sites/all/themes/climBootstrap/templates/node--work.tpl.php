@@ -45,7 +45,7 @@
       		<div class=\"details\">$dimensions</div> 
       		<div>$body</div>
       	</div>
-      	<div class=\"work-social right\">
+      	<div class=\"work-social right hidden-phone\">
       		<div class=\"social-btn\">
 						<a href=\"https://twitter.com/share\" 
 							class=\"twitter-share-button\" 

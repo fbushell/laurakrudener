@@ -53,7 +53,7 @@
 					<div class=\"created\">Posted $created</div>
 					<div class=\"blog_images\">$img</div>
 					<div class=\"item-body\">$body</div>
-					<div class=\"social-blog\">
+					<div class=\"social-blog hidden-phone\">
 						<div class=\"social-btn-blog\">
 							<a href=\"https://twitter.com/share\" 
 								class=\"twitter-share-button\" 
