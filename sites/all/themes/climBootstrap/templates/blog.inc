@@ -42,7 +42,6 @@
 			
 			// Load filename for pinterest
 			$img_field = $item->field_blog_images['und'][0]['filename'];
-			$base_url = 'http://laurakrudener.com';
 			$img_uri = $item->field_blog_images['und'][0]['uri'];
       $img_path = $base_url . '/sites/default/files/styles/blog/public/' . $img_field;
 			
