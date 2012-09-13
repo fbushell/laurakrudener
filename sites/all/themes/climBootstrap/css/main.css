@@ -1391,7 +1391,14 @@ span.element-invisible, h2.element-invisible { display: none; }
 #footer #social-wrap ul#social li { list-style: none; display: inline; margin: 0 0 0 15px; }
 #footer #social-wrap ul#social li img { height: 15px; width: 21px; }
 
-.work-info { margin-bottom: 20px; }
+.work-info { margin-bottom: 20px; width: 80%; }
+
+.work-social { width: 78px; }
+.work-social .pluginCommentFlyoutFull { width: 265px !important; }
+.work-social .social-btn { margin-bottom: 5px; }
+
+.social-blog { overflow: hidden; margin-top: 20px; }
+.social-blog .social-btn-blog { float: left; width: 100px; }
 
 #iso-container { margin-left: -10px; display: none; }
 #iso-container a.iso-item { width: 275px; height: 275px; display: block; margin: 0 0 10px 10px; z-index: 10; overflow: hidden; }
