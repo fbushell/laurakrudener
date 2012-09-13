@@ -39,7 +39,7 @@
 
 		$work_nid = $work->nid;
 		$work_title = $work->title;
-		$type_field = $work->field_work_type['und'][0]['value'];
+		if ( isset($work->field_work_type['und'][0]['value']) ? $type_field = $work->field_work_type['und'][0]['value'] : '');
 
 		// Switch on the type field		
 		switch ($type_field) {
