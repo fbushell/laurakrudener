@@ -21,13 +21,7 @@
 <div class="container-fluid" class="<?php print $classes; ?>"<?php print $attributes; ?>>
   <div id="content">
   
-    <?php if ( $user->name === 'admin' ) {
-	    
-	    print $messages;
-	    
-    } ?>
-    
-    
+    <?php //print $messages;?>
     <?php include('iso.inc'); ?>
   </div>
 </div>
