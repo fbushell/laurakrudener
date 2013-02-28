@@ -69,6 +69,10 @@
 // ---------------------
 
 @media (max-width: 480px)
+  p
+    font-size: 15px
+    line-height: 24px
+    font-weight: 300
   // Smooth out the collapsing/expanding nav
   .nav-collapse
     -webkit-transform: translate3d(0, 0, 0)
@@ -139,12 +143,16 @@
   .node-page
     .field-name-field-basic-image
       display: none
-  #iso-container a.iso-item
-    width: 100%
-    height: auto
-    margin-bottom: 10px
-    img
-      width: 100%
+  .container-iso
+    width: 85%    
+  
+  body #iso-container 
+    margin-left: 0
+    a.iso-item
+      width: 44%
+      margin: 10px
+      img
+        width: 100%
 
 
 // LANDSCAPE PHONE TO SMALL DESKTOP & PORTRAIT TABLET
@@ -172,6 +180,10 @@
     margin: 0
   .front #nav-region
     width: 270px   
+  #iso-container
+    margin-left: 0
+    a.iso-item
+      width: 32%
     
     
     
@@ -185,6 +197,7 @@
   +grid-fluid-generate(5.801%, 2.762%)
   // Input grid
   +grid-input-generate(42px, 20px)
+  	  
 
 // TABLETS AND BELOW
 // ----------------------------------------------------------------------------

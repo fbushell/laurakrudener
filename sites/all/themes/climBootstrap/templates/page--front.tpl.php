@@ -18,7 +18,7 @@
 	</div>
 </div>
 	
-<div class="container-fluid" class="<?php print $classes; ?>"<?php print $attributes; ?>>
+<div class="container-iso" class="<?php print $classes; ?>"<?php print $attributes; ?>>
   <div id="content">
   
     <?php //print $messages;?>

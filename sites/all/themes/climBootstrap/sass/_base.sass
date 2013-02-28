@@ -72,15 +72,16 @@ a.active
 	padding-left: $gridGutterWidth
 	padding-right: $gridGutterWidth
 	@include clearfix()
+	
+// Fluid isotope container
+.container-iso 
+	width: 98%
+	margin: 0 auto
+	@include clearfix()
 
 section
 	padding-top: 20px
 
-// Fixed (940px)
-@include grid-core-generate($gridColumnWidth, $gridGutterWidth)
-
-// Fluid (940px)
-@include grid-fluid-generate($fluidGridColumnWidth, $fluidGridGutterWidth)
 
 .span12 
 	width: 940px
@@ -2649,10 +2650,6 @@ h2.element-invisible
 	padding-left: 0
 	padding-right: 0
 	+border-radius(0)
-
-.navbar-fixed-top .container,
-.navbar-fixed-bottom .container
-	+grid-core-span($gridColumns)
 
 // Fixed to top
 .navbar-fixed-top
