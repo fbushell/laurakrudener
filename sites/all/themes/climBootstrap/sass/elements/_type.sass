@@ -1,0 +1,140 @@
+// ..............................................
+//
+//  This is my type of section...
+//
+// ..............................................
+
+p
+	margin: 0 0 15px
+
+.lead
+	font-size: 1.2em
+
+small
+	font-size: .85em
+
+.monster
+	font-size: 150px
+	font-family: $headingsFontFamily
+	font-weight: $headingsFontWeight
+
+
+strong
+	font-weight: $boldFontWeight
+
+em
+	font-style: italic
+
+cite
+	font-style: normal
+
+h1, h2, h3, h4, h5, h6
+	margin: 0 0 10px 0
+	font-family: $headingsFontFamily
+	font-weight: $headingsFontWeight
+	text-rendering: optimizelegibility
+	small
+		font-size: 0.65em
+		color: $gray
+
+h1
+	font-size: 4rem
+	line-height: 1.25
+
+h2
+	font-size: 3rem
+	line-height: 1.15384615
+
+h3
+	font-size: 1.375rem
+	line-height: 1.13636364
+
+h4
+	font-size: 1.125rem
+	line-height: 1.11111111
+
+h5
+	font-size: 1rem
+	line-height: inherit
+
+h6
+	font-size: 0.875rem
+	line-height: inherit
+
+@media (max-width: $small)
+	html
+		font-size: 12px
+
+
+@media (min-width: $small) and (max-width: $medium)
+	html
+		font-size: 14px
+
+
+
+
+ul, ol
+	padding: 0
+	margin: 0 0 10px 20px
+
+ul
+	ul, ol
+		margin-bottom: 0
+
+ol
+	ol, ul
+		margin-bottom: 0
+
+li
+	line-height: inherit
+	display: list-item
+
+ul.unstyled, ol.unstyled
+	margin-left: 0
+	list-style: none
+
+ul.inline 
+	margin: 0 0 10px
+	& > li
+		display: inline-block
+		padding-left: 5px
+		padding-right: 5px
+
+dl
+	margin-bottom: 20px
+
+dt
+	font-weight: $boldFontWeight
+
+dd
+	margin-left: 0
+
+abbr
+	&[title]
+		cursor: help
+		border-bottom: 1px dotted $grayLight
+
+blockquote
+	padding: ($globalSpacing / 2) 0 ($globalSpacing / 2) $globalSpacing
+	margin: 0 0 20px
+	font-size: 1.25em
+	line-height: inherit
+	border-left: 5px solid $primaryColor
+	p
+		margin-bottom: 0
+	cite
+		font-size: 0.8em
+		color: $gray
+		display: block
+		margin-top: 15px
+		font-style: italic
+		&:before
+			content: '\2014 \00A0'
+
+q
+	&:before, &:after
+		content: ""
+
+blockquote
+	&:before, &:after
+		content: ""

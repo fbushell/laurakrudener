@@ -1,0 +1,115 @@
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
+//  G R I D ☺
+//
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.container
+  position: relative
+  max-width: $maxContainerWidth
+  margin: 0 auto
+  +clearfix
+
+.container-site
+  max-width: 1200px
+  width: 90%
+  margin: 0 auto
+  +clearfix
+
+.row
+  +clearfix
+
+
+// ?????????????????????????????????????
+// Not sure what to do here, this could be addressed with some tweaks 
+// to the grid system or we can setup a seperate layout tool. It might
+// also be nice to look at how we can set max-widths for each container.
+.mainbar
+  float: left
+  width: 75%
+  padding: 0 20px 0 25px
+
+.sidebar
+  float: left
+  width: 25%
+  padding-left: 50px
+  img
+    +shadow(0, 2px)
+
+.fullbar
+  width: 100%
+  padding: 0 20px 0 30px
+
+// ?????????????????????????????????????
+
+//
+// Widths
+//
+.half
+  max-width: 50%
+  margin-right: auto
+  margin-left: auto
+
+.third
+  max-width: 33.3%
+  margin-right: auto
+  margin-left: auto
+
+.quarter
+  max-width: 25%
+  margin-right: auto
+  margin-left: auto
+
+
+//
+// Columns
+//
+.col-2, .col-3, .col-4, .col-5, .col-6, .col-8, .col-12
+  +clearfix
+
+.col-2 > *
+  float: left
+  width: 50%
+  display: block
+
+.col-3 > *
+  float: left
+  width: 33.3%
+  display: block
+
+.col-4 > *
+  float: left
+  width: 25%
+  display: block
+
+.col-5 > *
+  float: left
+  width: 20%
+  display: block
+
+.col-6 > *
+  float: left
+  width: 16.6%
+  display: block
+
+.col-8 > *
+  float: left
+  width: 12.5%
+  display: block
+
+.col-12 > *
+  float: left
+  width: 8.3%
+  display: block
+
+@media (max-width: 767px)
+  .col-2, .col-3, .col-4, .col-5, .col-6, .col-8, .col-12
+    & > *
+      float: none
+      width: 100%
+
+//
+// Column padding
+//
+.column-padding
+  padding-right: 10px

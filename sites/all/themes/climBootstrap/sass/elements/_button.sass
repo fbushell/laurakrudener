@@ -1,0 +1,86 @@
+//
+// Buttons
+// --------------------------------------------------
+
+button,
+a[role="button"],
+input[type="submit"]
+  display: inline-block
+  margin-bottom: 0
+  font-weight: inherit
+  text-align: center
+  font-family: $headingsFontFamily
+  font-size: $baseFontSize
+  color: $primary-button-color
+  vertical-align: middle
+  cursor: pointer
+  background-image: none
+  border: $button-border
+  white-space: nowrap
+  background: $primary-button-bg
+  padding: $button-padding
+  height: $button-height
+  -webkit-font-smoothing: antialiased
+  border-radius: 0
+  +transition
+  &,
+  &:active,
+  &.active
+    &:focus
+      outline: none
+  &:hover,
+  &:focus
+    text-decoration: none
+    background: $primaryColor
+    color: white
+    border: $button-border
+  &:active,
+  &.active
+    outline: 0
+    background-image: none
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] &
+    cursor: not-allowed
+    pointer-events: none
+    opacity: 0.3
+  &.half
+    max-width: 300px
+    float: left
+
+  // Alternative button
+  &.alt
+    background: $alt-button-bg
+    color: $alt-button-color
+    &:hover
+      background: $alt-button-hover
+
+  // Hollow Button
+  &.hollow
+    background: transparent
+    border: $button-border solid $hollow-button-color
+    color: $hollow-button-color
+    &:hover
+      border-color: $primaryColor
+      color: $primaryColor
+      -webkit-font-smoothing: antialiased
+
+  // Full width buttons
+  &.full
+    display: block
+    width: 100%
+    margin: 10px 0
+
+  // Button Sizes
+  &.sm
+    padding: 5px 15px
+    height: 36px
+
+  &.small
+    padding: 2px 12px
+    height: 21px
+    font-size: 0.8em
+
+  &.lg
+    padding: 18px 50px
+    height: 60px

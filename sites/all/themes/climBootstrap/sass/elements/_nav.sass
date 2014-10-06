@@ -1,0 +1,57 @@
+$transition-duration: 600ms
+
+.main-wrap
+  position: relative
+  min-height: 100%
+  background: $bodyBackground
+  transition: $transition-duration
+  z-index: 420
+  padding: $header-height 0 0 $sidebar-width
+  .content
+    margin: 0
+    background: $grayLightest
+
+// only select the first child of the body to give it 100% height since the main-wrap lives directly inside it.
+body > .ember-view
+  height: 100%
+
+#sidebar
+  position: fixed
+  top: 0
+  left: 0
+  bottom: 0
+  animation: rainbow 1000s infinite
+  background: $red
+  width: $sidebar-width
+  z-index: 4200
+  -webkit-font-smoothing: antialiased
+  box-shadow: inset -10px 0 10px -12px
+  a
+    font-size: 1.3em
+  nav
+    margin-top: $globalSpacing
+    ul
+      margin: 0
+      list-style: none
+      li
+        margin: 0
+        a 
+          display: block
+          padding: 10px 20px
+          color: white
+          text-decoration: none
+          border: none
+          &.active
+            background: $grayLightest
+            color: $black
+            &:hover
+              background: $grayLightest
+              color: $black
+          &:hover
+            color: $black
+            
+  .top-nav
+    width: 100%
+    img
+      height: 73px
+      padding: 10px 0 0 30px

@@ -1,0 +1,93 @@
+.login-cover
+	position: fixed
+	top: 0
+	right: 0
+	bottom: 0
+	left: 0
+	background: #0AF
+	//background: linear-gradient($pink, $blue)
+	z-index: 6666
+
+.sign-up-cover
+	position: absolute
+	top: 0
+	right: 0
+	left: 0
+	background: $grayLightest
+	z-index: 6666
+
+@keyframes push
+	0%
+		transform: scale(0.9)
+	100%
+		transform: scale(1)
+
+.login-container
+	position: fixed
+	top: 0
+	right: 0
+	bottom: 0
+	left: 0
+	display: table
+	table-layout: fixed
+	height: 100%
+	width: 400px
+	margin: 0 auto
+	z-index: 42042069
+
+.login-wrap
+	display: table-cell
+	vertical-align: middle
+	position: relative
+	z-index: 420420
+	padding: $globalSpacing
+	animation: push 700ms
+	top: -100px
+	color: white
+	&.signup-wrap
+		top: -20px
+	label
+		color: white
+		font-weight: 400
+		font-size: 15px
+	a
+		color: white
+		border-color: white
+	img
+		width: 100px
+		display: block
+		margin: 0 auto 50px auto
+	header
+		padding: 20px
+		text-align: center
+	form
+		margin: 0
+	button[type="submit"]
+		background: transparent
+		color: white
+		height: 50px
+		font-size: 17px
+		-webkit-font-smoothing: normal
+		&:hover
+			background: white
+			color: #0AF
+			border-color: white
+	input
+		height: 50px
+		font-size: 17px
+		border-color: white
+	footer
+		margin-top: $globalSpacing
+		+clearfix
+		.remember
+			float: left
+			label
+				font-weight: normal
+				font-family: $baseFontFamily
+		.forgot
+			float: right
+		.signup
+			clear: both
+			text-align: center
+			padding-top: $globalSpacing/2
+

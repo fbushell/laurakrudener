@@ -1,11 +1,13 @@
-<article id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?>">
+<div class="info-toggle">Info</div>
+
+<div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?>">
 	<div class="node-inner">
     
     <?php if (!$page): ?>
       <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
     <?php endif; ?>
 
-  	<div class="content">
+  	<div class="work-info">
       <?php 
 
 	    // Get full url 
@@ -40,7 +42,7 @@
       
       // Create markup
       $work_info = "
-      	<div class=\"work-info left\">
+      	<div class=\"main-info\">
       		<div class=\"work-title\"><h3>$title, $year</h3></div> 
       		<div class=\"details\">$dimensions</div> 
       		<div>$body</div>
@@ -118,4 +120,4 @@
   	</div>
         
 	</div>
-</article>
+</div>

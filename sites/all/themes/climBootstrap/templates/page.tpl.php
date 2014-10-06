@@ -1,44 +1,43 @@
-<div class="navbar">
-	<div id="logo" class="center">
+<header class="main">
+  <div id="logo">
     <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home">
       <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>"/>
     </a>
-	</div>
+  </div>
 
-  <div id="nav-region" class="center">
-		<ul id="iso-filters">
-			<li><a href="/">works</a></li>
-			<li><a>/</a></li>
-		</ul>
-		<?php print render($page['header']); ?>
-	</div>
-</div>
+  <nav>
+    <ul id="iso-filters">
+      <li class="categories">Categories
+        <ul>
+          <li><a href="#" class="selected" data-filter="*">Everything</a></li>
+          <li><a href="#painting" data-filter=".painting">Paintings</a></li>
+          <li><a href="#drawing" data-filter=".drawing">Drawings</a></li>
+          <li><a href="#interior" data-filter=".interior">Interiors</a></li>
+          <li class="works-link"><a href="/" class="active">Works</a></li>
+        </ul>
+      </li>
+      <li class="works-link"><a href="/">Works</a></li>
+      <li>Follow
+        <ul id="social">
+          <li><a href="http://on.fb.me/RuJoOq" TARGET="_blank">Facebook</a></li>
+          <li><a href="http://instagram.com/laurakrudener" TARGET="_blank">Instagram</a></li>
+          <li><a href="http://bit.ly/NjJLcN" TARGET="_blank">Twitter</a></li>
+          <li><a href="http://bit.ly/TA7qIz" TARGET="_blank">Pinterest</a></li>
+          <li><a href="http://www.vimeo.com/laurakrudener" TARGET="_blank">Vimeo</a></li>
+       </ul>
+      </li>
+    </ul>
+    <?php print render($page['header']); ?>
+  </nav>
+</header>
 
 <div class="container" class="<?php print $classes; ?>"<?php print $attributes; ?>>
-  <div class="row">
-  	<div id="content-header" class="span12">
-  	
-      <?php if ($tabs): ?>
-      	<div class="tabs"><?php print render($tabs); ?></div>
-      <?php endif; ?>
-    </div> 
-    <div class="span10 offset1">
-    	<?php print render($page['content']) ?>
-    </div>
+	<div id="content-header">
+    <?php if ($tabs): ?>
+    	<div class="tabs"><?php print render($tabs); ?></div>
+    <?php endif; ?>
+  </div> 
+  <div class="page-content">
+  	<?php print render($page['content']) ?>
   </div>
 </div>
-
-<footer id="footer">
-  <div id="social-wrap">
-	 <div id="social-wrap">
-  		<ul id="social">
-        <li><a href="http://on.fb.me/RuJoOq" TARGET="_blank"><img src="/sites/all/themes/climBootstrap/images/social/facebook_icon.png"></a></li>
-        <li><a href="http://bit.ly/TA7qIz" TARGET="_blank"><img src="/sites/all/themes/climBootstrap/images/social/pinterest_icon.png"></a></li>
-        <li><a href="http://www.vimeo.com/laurakrudener" TARGET="_blank"><img src="/sites/all/themes/climBootstrap/images/social/vimeo_icon.png"></a></li>
-        <li><a href="http://bit.ly/P6It3r" TARGET="_blank"><img src="/sites/all/themes/climBootstrap/images/social/instagram_icon.png" ></a></li>
-        <li><a href="http://bit.ly/NjJLcN" TARGET="_blank"><img src="/sites/all/themes/climBootstrap/images/social/twitter_icon.png"></a></li>
-        <li><a href="mailto:laura@laurakrudener.com" TARGET="_blank"><img src="/sites/all/themes/climBootstrap/images/social/email_icon.png"></a></li>
-       </ul>
-  	</div>
-  </div>
-</footer>

@@ -1,194 +1,132 @@
-// Variables.scss
-// Variables to customize the look and feel of Bootstrap
-// -----------------------------------------------------
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
+// Colors
+// 
+
+$black: #111
+$white: #fff
+$grayLight: #F1F1EF
+$gray: #DAD8D8
+$blue: #000CFF
+$green: #509F94
+$red: #EF4922
+$cream: #938C86
+$yellow: #FFCD0D
+$purple: #9E0EEA
+$pink: #FDDBD1
+$orange: #E86C0C
 
 
-// GLOBAL VALUES
-// ----------------------------------------------------------------------------
 
-// Grays
-// ----------------------------------------------------------------------------
-$black: #231F20 !default
-$grayDarker: #222222 !default
-$grayDark: #333333 !default
-$gray: #555555 !default
-$grayLight: #999999 !default
-$grayLighter: #eeeeee !default
-$white: white !default
-
-// Accent colors
-// ----------------------------------------------------------------------------
-$blue: #049cdb !default
-$blueDark: #0064cd !default
-$green: #61ACA4 !default
-$red: #9d261d !default
-$yellow: #ffc40d !default
-$orange: #f89406 !default
-$pink: #c3325f !default
-$purple: #7a43b6 !default
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
+// Base
+//
+$linkColor: $gray
+$linkHoverColor: $black
+$primaryColor: $green
+$bodyBackground: white
+$hrColor: $red
+$borderColor: $gray
+$global-border-width: 1px
+$maxContainerWidth: 2500px
+$globalSpacing: 30px
+$sidebar-width: 135px
+$header-height: 70px
+$transition-duration: 300ms
 
 
-// Scaffolding
-// ----------------------------------------------------------------------------
-$bodyBackground: $white !default
-$textColor: $grayDark !default
-$containerPadding: 0 0 80px 0
 
-// Links
-// ----------------------------------------------------------------------------
-$linkColor: $green !default
-$linkColorHover: $black
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
+// Break Points
+//
+$small: 43rem
+$medium: 56rem
 
-// Typography
-// ----------------------------------------------------------------------------
-$baseFontSize: 13px !default
-$baseFontFamily: "Helvetica Neue", Helvetica, Arial, sans-serif !default
-$baseLineHeight: 18px !default
-$altFontFamily: Georgia, "Times New Roman", Times, serif !default
 
-$headingsFontFamily: inherit !default
 
-// empty to use BS default, @baseFontFamily
-$headingsFontWeight: bold !default
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// 
+// Stacking 
+//
+$z-bottom: -100
+$z-0: 0
+$z-1: 100
+$z-2: 200
+$z-3: 300
+$z-error: 500
+$z-cover: 400
+$z-modal: 420
+$header: $z-3
 
-// instead of browser default, bold
-$headingsColor: inherit !default
 
-// empty to use BS default, @textColor
 
-// Tables
-// ----------------------------------------------------------------------------
-$tableBackground: $white !default
-
-// overall background-color
-$tableBackgroundAccent: $white !default
-
-// for striping
-$tableBackgroundHover: #f5f5f5 !default
-
-// for hover
-$tableBorder: #ccc !default
-
-// table and cell border
-
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
 // Buttons
-// ----------------------------------------------------------------------------
-$btnBackground: $white !default
-$btnBackgroundHighlight: darken($white, 10%) !default
-$btnBorder: darken($white, 25%) !default
+//
+$button-padding: 20px 50px
+$button-height: auto
+$button-border: 0
 
-$btnPrimaryBackground: $linkColor !default
-$btnPrimaryBackgroundHighlight: adjust-hue($btnPrimaryBackground, 15) !default
+$primary-button-color: white
+$primary-button-bg: $black
+$primary-button-hover: $primaryColor
 
-$btnInfoBackground: #5bc0de !default
-$btnInfoBackgroundHighlight: #2f96b4 !default
+$alt-button-color: white
+$alt-button-bg: $gray
+$alt-button-hover: darken($gray, 10%)
 
-$btnSuccessBackground: #62c462 !default
-$btnSuccessBackgroundHighlight: #51a351 !default
+$hollow-button-color: $black
 
-$btnWarningBackground: lighten($orange, 15%) !default
-$btnWarningBackgroundHighlight: $orange !default
 
-$btnDangerBackground: #ee5f5b !default
-$btnDangerBackgroundHighlight: #bd362f !default
 
-$btnInverseBackground: $gray !default
-$btnInverseBackgroundHighlight: $grayDarker !default
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
+// Type
+// 
+$fontBase: 16px
 
-// Forms
-// ----------------------------------------------------------------------------
-$inputBackground: $white !default
-$inputBorder: #cccccc !default
-$inputDisabledBackground: $grayLighter !default
+$baseFontFamily: 'Helvetica Neue', Helvetica, sans-serif
+$baseFontWeight: 300
+$baseLineHeight: 1.5
+$baseFontSize: 1rem
 
-// Dropdowns
-// ----------------------------------------------------------------------------
-$dropdownBackground: $white !default
-$dropdownBorder: rgba(0, 0, 0, 0.2) !default
-$dropdownLinkColor: $grayDark !default
-$dropdownLinkColorHover: $white !default
-$dropdownLinkBackgroundHover: $linkColor !default
+$headingsFontFamily: "Helvetica Neue", Helvetica, Arial, sans-serif
+$headingsFontWeight: 700
 
-// COMPONENT VARIABLES
-// ----------------------------------------------------------------------------
+$boldFontWeight: 700
 
-// Z-index master list
-// ----------------------------------------------------------------------------
-// Used for a bird's eye view of components dependent on the z-axis
-// Try to avoid customizing these :)
-$zindexDropdown: 1000 !default
-$zindexPopover: 1010 !default
-$zindexTooltip: 1020 !default
-$zindexFixedNavbar: 1030 !default
-$zindexModalBackdrop: 1040 !default
-$zindexModal: 1050 !default
+$altFontFamily: Georgia, Georgia, serif 
+$altFontWeight: normal
+$monospaceFontFamily: "Courier New", monospace
 
-// Sprite icons path
-// ----------------------------------------------------------------------------
-$iconSpritePath: "../images/glyphicons-halflings.png"
-$iconWhiteSpritePath: "../images/glyphicons-halflings-white.png"
 
-// Input placeholder text color
-// ----------------------------------------------------------------------------
-$placeholderText: $grayLight !default
 
-// Hr border color
-// ----------------------------------------------------------------------------
-$hrBorder: $grayLighter !default
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
+// Tables
+//
+$tableBg: transparent
+$tableBorderColor: transparent
+$tableStripeColor: transparent
+$tableBgHover: $grayLight
+$tableCellPadding: 8px 5px 8px 0
 
-// Navbar
-// ----------------------------------------------------------------------------
-$navbarHeight: 80px !default
-$navbarBackground: $white !default
-$navbarBackgroundHighlight: $white !default
 
-$navbarText: $grayLight !default
-$navbarLinkColor: $grayLight !default
-$navbarLinkColorHover: $white !default
-$navbarLinkColorActive: $navbarLinkColorHover !default
-$navbarLinkBackgroundHover: transparent !default
-$navbarLinkBackgroundActive: $navbarBackground !default
 
-$navbarSearchBackground: lighten($navbarBackground, 25%) !default
-$navbarSearchBackgroundFocus: $white !default
-$navbarSearchBorder: darken($navbarSearchBackground, 30%) !default
-$navbarSearchPlaceholderColor: #cccccc !default
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
+// Input
+//
+$input-color: $black
+$input-bg: $grayLight
+$input-border-width: 1px
+$input-border: $grayLight
+$input-border-radius: 0
+$input-focus: $blue
+$input-disabled: $grayLight
+$input-padding: 6px 10px 4px
+$input-height: 55px
 
-// Hero unit
-// ----------------------------------------------------------------------------
-$heroUnitBackground: $grayLighter !default
-$heroUnitHeadingColor: inherit !default
-$heroUnitLeadColor: inherit !default
-
-// Form states and alerts
-// ----------------------------------------------------------------------------
-$warningText: #c09853 !default
-$warningBackground: #fcf8e3 !default
-$warningBorder: darken(adjust-hue($warningBackground, -10), 3%) !default
-
-$errorText: #b94a48 !default
-$errorBackground: #f2dede !default
-$errorBorder: darken(adjust-hue($errorBackground, -10), 3%) !default
-
-$successText: #468847 !default
-$successBackground: #dff0d8 !default
-$successBorder: darken(adjust-hue($successBackground, -10), 5%) !default
-
-$infoText: #3a87ad !default
-$infoBackground: #d9edf7 !default
-$infoBorder: darken(adjust-hue($infoBackground, -10), 7%) !default
-
-// GRID
-// ----------------------------------------------------------------------------
-
-// Default 940px grid
-// ----------------------------------------------------------------------------
-$gridColumns: 12 !default
-$gridColumnWidth: 70px !default
-$gridGutterWidth: 10px !default
-$gridRowWidth: $gridColumns * $gridColumnWidth + $gridGutterWidth * ($gridColumns - 1) !default
-
-// Fluid grid
-// ----------------------------------------------------------------------------
-$fluidGridColumnWidth: 6.383% !default
-$fluidGridGutterWidth: 2.128% !default

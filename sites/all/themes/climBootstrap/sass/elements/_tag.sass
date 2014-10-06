@@ -1,0 +1,33 @@
+.tag
+  float: left
+  margin: 3px 3px 0 0
+  padding: 3px 10px
+  color: $grayDark
+  background: $grayLight
+  text-transform: capitalize
+  font-weight: inherit
+  text-align: center
+  cursor: pointer
+  -webkit-font-smoothing: antialiased
+  &:hover
+    color: $black
+.tag.selected
+  background-color: $black
+  color: white
+  &:hover
+    color: white
+.tag.remove 
+  color: white
+  background: $black
+  span:before
+    content: "x"
+    display: relative
+    font-size: 0.6em
+    margin-right: 5px
+    top: -1px
+.tag.gray
+  color: white
+  background-color: $black
+  &:hover
+    cursor: normal
+
