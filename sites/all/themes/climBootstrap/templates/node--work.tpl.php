@@ -1,4 +1,7 @@
-<div class="info-toggle">Info</div>
+<div class="info-toggle">
+  <span class="more">More</span>
+  <span class="less">Less</span>
+</div>
 
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?>">
 	<div class="node-inner">
@@ -21,6 +24,7 @@
       $body = $node->body['und'][0]['value'];
       $img_field = $node->field_main_image['und'][0]['filename'];
       $img_path = $base_url . '/sites/default/files/files/paintings/' . $img_field;
+      $uri = $node->field_main_image['und'][0]['uri'];
       
       // Print and theme images
       if ( isset( $node->field_height['und'][0]['value'] ) ) {
@@ -43,11 +47,12 @@
       // Create markup
       $work_info = "
       	<div class=\"main-info\">
-      		<div class=\"work-title\"><h3>$title, $year</h3></div> 
+      		<div class=\"work-title\"><h4>$title</h4></div> 
+          <div class=\"year\">$year</div>
       		<div class=\"details\">$dimensions</div> 
       		<div>$body</div>
       	</div>
-      	<div class=\"work-social right hidden-phone\">
+      	<div class=\"work-social hidden-phone\">
       		<div class=\"social-btn\">
 						<a href=\"https://twitter.com/share\" 
 							class=\"twitter-share-button\" 
@@ -77,41 +82,70 @@
       	</div>
       ";
 
+       // Load image vars with image style
+        $img_vars = array(
+          'style_name' => 'work_med',
+          'path' => $uri,
+          'alt' => 'small',
+          'title' => '',
+          'width' => '',
+          'height' => '',
+        );
+        
+        // Theme image
+        $img_styled =  theme_image_style($img_vars);
+
+        // Load image vars with image style
+        $img_vars_lrg = array(
+          'style_name' => 'work_lrg',
+          'path' => $uri,
+          'alt' => 'large',
+          'title' => '',
+          'width' => '',
+          'height' => '',
+        );
+        
+        // Theme image
+        $img_styled_lrg =  theme_image_style($img_vars_lrg);
+
+
       $img_final = "
-        <div class=\"img-wrap clearfix\">
-          <a href=\"$img_path\" class=\"zoom\"><img src=\"$img_path\" /></a>
+        <input type=\"range\" />
+        <div class=\"zoom\">
+          $img_styled_lrg
         </div>
       ";
 
 
+
       // Loop through aditional images if they exist
-      if ( isset( $node->field_add_images['und'] ) ) {
+      // if ( isset( $node->field_add_images['und'] ) ) {
 	      
-	      $alt_img_field = $node->field_add_images['und'];
+	     //  $alt_img_field = $node->field_add_images['und'];
 	      
-	      foreach ($alt_img_field as $key) {
+	     //  foreach ($alt_img_field as $key) {
         
-        $alt_img_path = $base_url . '/sites/default/files/files/paintings/' . $key['filename'];
+      //   $alt_img_path = $base_url . '/sites/default/files/files/paintings/' . $key['filename'];
 
-        $add_images_final .= "
-          <div class=\"img-wrap\">
-            <a href=\"$alt_img_path\" class=\"zoom\" ><img src=\"$alt_img_path\" /></a>
-          </div>
-        ";
+      //   $add_images_final .= "
+      //     <div class=\"img-wrap\">
+      //       <a href=\"$alt_img_path\" class=\"zoom\" ><img src=\"$alt_img_path\" /></a>
+      //     </div>
+      //   ";
 
-      }
+      // }
 	      
-      } else {
+      // } else {
 	      
-	      $alt_img_field = '';
+	     //  $alt_img_field = '';
 	      
-	      $add_images_final = '';
+	     //  $add_images_final = '';
 	      
-      }
+      // }
 
       
       // Final html output
-      $html = $work_info . $img_final . $add_images_final;
+      $html = $work_info . $img_final;
 
       print $html;
 

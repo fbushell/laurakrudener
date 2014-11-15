@@ -1,6 +1,8 @@
 ;(function( $, window, document, undefined ){
   
 	$(window).load(function(){
+
+		var $menu = $('.menu');
 	
 	
 		// Optimalisation: Store the references outside the event handler:

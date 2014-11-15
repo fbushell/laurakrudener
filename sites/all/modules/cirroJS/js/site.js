@@ -11,30 +11,24 @@
 
 		init: function(){
 			var self = this;
-			self.$infoToggle    = $('.info-toggle');
-			self.$toggleInfo    = $('.work-info');
-			self.$zoom          = $('.zoom');
+			self.$body 					= $('body');
+			self.$navToggle     = $('#nav-toggle');
+			self.$mobileOverlay = $('#mobile-overlay');
 
-			self.initZoom();
-
-			self.$infoToggle.on('click', self.toggleInfo);
+			self.$navToggle.on('click', self.toggleNav);
 	},
 
-
-	toggleInfo: function() {
-		var self = page;
-		self.$infoToggle.toggleClass('active');
-		self.$toggleInfo.toggleClass('active');
+	toggleNav: function() {
+		page.$body.toggleClass('mobile-nav-active');
 	},
 
-	initZoom: function() {
+	checkNav: function() {
 		var self = this;
-		self.$zoom.panzoom({
-			  minScale: 0.7,
-  			maxScale: 2,
-  			$zoomRange: $("input[type='range']")
-		});
-	}
+		if (self.windWidth > 630) {return;}
+		if (self.windWidth > 600) {
+			page.$body.removeClass('mobile-nav-active');
+		}
+	},
 
 };
 
@@ -45,6 +39,11 @@
 	// Window load
 	$window.load(function(){
 		page.init();
+	});
+
+	// Window resize
+	$window.resize(function(){
+		page.checkNav();
 	});
 
 }( jQuery, window, document));
