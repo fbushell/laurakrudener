@@ -27,6 +27,5 @@ ________/\\\\\\\\\_________________________________________________
   <?php print $page_top; ?>
   <?php print $page; ?>
   <?php print $scripts; ?>
-  <script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
 </body>
 </html>

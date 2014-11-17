@@ -7,6 +7,9 @@
   padding: 200px 20px 0
 
 
+.messages.error
+  display: none !important
+
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -17,16 +20,23 @@
 .content
   +clearfix
 
+.work-info
+  font-size: 0.9rem
+  .year
+    margin: 15px 0
+    font-style: italic
 
 input[type=range]
   position: fixed
-  top: 150px
-  left: 30px
+  bottom: 100px
+  left: 33.3%
   -webkit-appearance: none
-  background-color: silver
-  width: 200px
-  height: 2px
+  background-color: #BBB
+  width: 33.3%
+  height: 1px
   padding: 0
+  border: none
+  margin: 0
   &:focus
     border: none
 
@@ -41,7 +51,7 @@ input[type="range"]::-webkit-slider-thumb
 body
   // Basic Pages
   &.node-type-page
-    background: $grayLight
+    background: $gray
     header.main
       background: transparent 
     .page-content
@@ -74,37 +84,46 @@ body
       .info-toggle
         position: fixed
         top: 200px
-        left: 30px
+        left: 35px
         z-index: $z-3
         cursor: pointer
+        .circle
+          height: 10px
+          width: 10px
+          background: #000
+          display: block          
+          border-radius: 50%
+          float: left
+          position: relative
+          top: 6px
+          margin-right: 10px
         .more
           display: block
+          float: left
         .less
           display: none
+          float: left
         &.active
           .more
             display: none
           .less
             display: block
       .work-info
-        display: none
         opacity: 0
         visibility: hidden
         transition: 300ms ease-out
         position: fixed
         top: 280px
-        left: 30px
-        width: 300px
+        left: 35px
+        max-width: 300px
         height: auto
-        padding-bottom: 30px
+        padding-bottom: 0
         z-index: $z-2
-        transform: scale(0.9)
         transition: 300ms ease-out
         &.active
           visibility: visible
           opacity: 1
           display: block
-          transform: scale(1)
 
 
 
@@ -160,10 +179,10 @@ header.main
     width: 95%
     max-width: 500px
   #logo
-    width: 300px
+    width: 205px
     position: relative
     left: 50%
-    margin: 0 0 $globalSpacing -150px
+    margin: 0 0 $globalSpacing -102.5px
   .form-actions
     margin-top: 0
     margin-bottom: 0
@@ -174,17 +193,12 @@ header.main
   .description
     display: none
 
-
-.work-info
-  margin-bottom: 20px
-  width: 80%
-
 .work-social
-  width: 78px
-  .pluginCommentFlyoutFull
-    width: 265px !important
-  .social-btn
-    margin-bottom: 5px
+  margin-top: 20px
+  a,
+  a:visited
+    color: $black
+    display: block
     
 .social-blog
   overflow: hidden
@@ -250,10 +264,25 @@ body.page-node-9
     max-width: 500px
     margin: 0 auto
   .page-content
-    max-width: 1300px
+    max-width: 1100px
     width: 95%
   .field-name-body
-    font-size: 1.2rem
+    font-size: 1.5rem
     text-align: center
     margin-top: 50px
 
+
+@media(max-width: 800px)
+  #iso-container a.iso-item
+    width: 50%
+  body.node-type-work .page-content .info-toggle
+    top: 100px
+  body.node-type-work .page-content .work-info
+    top: 150px
+  input[type=range]
+    left: 10%
+    width: 80%
+  #front-filters 
+    font-size: 1rem
+    ul li a
+      margin: 0 15px

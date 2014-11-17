@@ -3,7 +3,9 @@
 	 <div class="row">
     <div class="span6"> 
     	<div id="logo">
-	      <img src="/sites/all/themes/climBootstrap/images/logo.png"/>
+	      <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home">
+          <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>"/>
+        </a>
 	    </div>
   	</div>
 

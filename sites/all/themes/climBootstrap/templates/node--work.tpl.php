@@ -1,6 +1,7 @@
 <div class="info-toggle">
-  <span class="more">More</span>
-  <span class="less">Less</span>
+  <span class="circle"></span>
+  <span class="more">Information</span>
+  <span class="less">Hide</span>
 </div>
 
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?>">
@@ -47,37 +48,15 @@
       // Create markup
       $work_info = "
       	<div class=\"main-info\">
-      		<div class=\"work-title\"><h4>$title</h4></div> 
+      		<div class=\"work-title\"><h3>$title</h3></div> 
           <div class=\"year\">$year</div>
       		<div class=\"details\">$dimensions</div> 
       		<div>$body</div>
       	</div>
       	<div class=\"work-social hidden-phone\">
-      		<div class=\"social-btn\">
-						<a href=\"https://twitter.com/share\" 
-							class=\"twitter-share-button\" 
-							data-via=\"twitterapi\" 
-							data-lang=\"en\">Tweet
-						</a>
-					</div>
-		
-					<div class=\"fb-like social-btn\"
-						data-href=\"$url\" 
-						data-send=\"false\" 
-						data-layout=\"button_count\" 
-						data-width=\"260\" 
-						data-show-faces=\"false\" 
-						data-font=\"arial\">
-					</div>
-						
-					<div class=\"social-btn\">
-						<a href=\"http://pinterest.com/pin/create/button/?url=$url&media=$img_path&description=$title\" 
-						class=\"pin-it-button\" 
-						count-layout=\"horizontal\">
-							<img border=\"0\" src=\"//assets.pinterest.com/images/PinExt.png\" title=\"Pin It\" />
-						</a>
-					</div>
-						
+          <a target=\"_blank\" href=\"https://twitter.com/home?status=$url\">Twitter</a>
+          <a target=\"_blank\" href=\"https://www.facebook.com/sharer/sharer.php?u=$url\">Facebook</a>
+          <a target=\"_blank\" href=\"https://pinterest.com/pin/create/button/?url=$url&media=$img_path&description=$title\">Pinterest</a>
 					</div>
       	</div>
       ";
