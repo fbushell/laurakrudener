@@ -1,0 +1,58 @@
+@keyframes DROP-ARROW
+  0%
+    top: -20px
+    opacity: 0
+  10%
+    top: -15px
+    opacity: 1
+  90%
+    top: 50px
+    opacity: 1
+  100%
+    top: 55px
+    opacity: 0
+
+.drag-drop-box
+  display: table
+  min-width: 100px
+  width: 100%
+  min-height: 200px
+  border: 2px dashed $black
+  text-align: center
+  background-position: center center
+  +transition
+  h4
+    font-weight: 400
+    color: $black
+    margin: 10px 0 0
+  &.loading
+    background: url('loading.gif') no-repeat center center
+    .drop-inner
+      opacity: 0
+  &.not-loading
+    .drop-inner
+      opacity: 1
+  &.drag-active
+    background-color: $primaryColor
+    border: 1px solid $primaryColor
+    color: $primaryColor
+    position: relative
+    .drop-inner 
+      color: $primaryColor
+      +transition()
+      .icon
+        transform: rotate(180deg)
+        animation: DROP-ARROW 1s infinite
+        color: white
+        & * div
+          color: $blue
+    h4
+      color: $blue
+  &.drag-inactive
+  .drop-inner
+    display: table-cell
+    vertical-align: middle
+    color: $black
+    .icon
+      font-size: 23px
+      +transition()

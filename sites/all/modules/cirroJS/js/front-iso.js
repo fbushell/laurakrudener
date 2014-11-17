@@ -1,45 +1,41 @@
-(function($){
-	// Store our function as a property of Drupal.behaviors.
-  Drupal.behaviors.frontIso = {
-    attach: function (context, settings) {  
+;(function( $, window, document, undefined ){
+  
+	$(window).load(function(){
+
+		var $menu = $('.menu');
+	
+	
+		// Optimalisation: Store the references outside the event handler:
+    var $window = $(window),
+    		$container = $('#iso-container');
+
+		// fade in container
+		$container.fadeIn('slow');
+
+		// Init Isotope
+		$container.isotope({
+			itemSelector : '.iso-item',
+			layoutMode: 'masonry'
+		});
 		
 		
-			$(window).load(function(){
+    $filterLinks = $('#iso-filters').find('a');
 
-				// cache container
-				var $container = $('#iso-container');
-
-				// fade in container
-				$container.fadeIn('slow');
-				
-				$container.isotope({
-	  			// options
-	  			itemSelector : '.iso-item',
-				}
-
-				);
-				
-        $filterLinks = $('#iso-filters').find('a');
-
-	      $filterLinks.click(function(){
-	        var $this = $(this);
-	        // don't proceed if already selected
-	        if ( $this.hasClass('selected') ) {
-	          return false;
-	        }
-	        var $filters = $this.parents('#iso-filters');
-	        $filters.find('.selected').removeClass('selected');
-	        $this.addClass('selected');
-				
-				  var selector = $this.attr('data-filter');
-				  $container.isotope({ filter: selector });
-				  return false;
-				});
-				
-			});
-			
-			
-			
-		}
-  }
-}(jQuery));
+    $filterLinks.click(function(){
+      var $this = $(this);
+      // don't proceed if already selected
+      if ( $this.hasClass('selected') ) {
+        return false;
+      }
+      
+      var $filters = $this.parents('#iso-filters');
+      $filters.find('.selected').removeClass('selected');
+      $this.addClass('selected');
+		
+		  var selector = $this.attr('data-filter');
+		  $container.isotope({ filter: selector });
+		  return false;
+		});
+	});
+  
+}( jQuery, window, document ));

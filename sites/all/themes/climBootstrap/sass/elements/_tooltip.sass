@@ -1,0 +1,31 @@
+.tooltip
+  display: inline
+  position: relative
+.tooltip
+  &:hover:after
+    background: $black
+    bottom: 30px
+    color: #fff
+    -webkit-font-smoothing: antialiased
+    content: attr(title)
+    left: 20%
+    padding: 5px 10px
+    position: absolute
+    z-index: 98
+    width: 220px
+    word-wrap: break-word
+    font-weight: 400
+    font-size: 0.8em
+    line-height: 1.2
+    text-transform: initial
+    +shadow(0, 2px)
+  &:hover:before
+    border: solid
+    border-color: #111 transparent
+    border-width: 6px 6px 0 6px
+    bottom: 24px
+    content: ""
+    left: 50%
+    position: absolute
+    z-index: 99
+    

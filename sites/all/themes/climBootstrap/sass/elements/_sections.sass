@@ -1,0 +1,48 @@
+section
+  padding: ($globalSpacing) 0
+  margin: 0 10px
+  article
+    padding: ($globalSpacing / 2) 0
+    &:first-of-type
+      padding: 0 0 ($globalSpacing / 2) 0
+    &:last-of-type
+      padding: ($globalSpacing / 2) 0 0
+  &.row
+    border-bottom: 1px solid $borders
+    .sidebar
+      padding: 0 30px
+
+.cover
+  position: relative
+  width: 100%
+  padding: 15% 5%
+
+hr
+  margin: $globalSpacing 20px
+  border: 0
+  border-top: 1px solid $gray
+  clear: both
+
+#too-small
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  background: $primaryColor
+  color: white
+  -webkit-font-smoothing: antialiased
+  z-index: 420420420
+  display: none
+  +transition
+  & > div
+    position: absolute
+    width: 100%
+    padding: 0 40px
+    font-size: 1.5em
+    top: 50%
+    text-align: center
+
+@media (max-width: 767px)
+  #too-small
+    display: block

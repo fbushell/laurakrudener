@@ -57,9 +57,9 @@
 	  $img_styled = '';
 	  
 				// image info
-				$img_width = $work->field_main_image['und'][0]['width'];
-				$img_height = $work->field_main_image['und'][0]['height'];
-				$img_uri = $work->field_main_image['und'][0]['uri'];
+				$img_width = $work->field_thumbnail['und'][0]['width'];
+				$img_height = $work->field_thumbnail['und'][0]['height'];
+				$img_uri = $work->field_thumbnail['und'][0]['uri'];
 			  
 			  // Load image vars
 			  $img_vars = array(

@@ -24,6 +24,11 @@ hr {
 legend {
   font-weight: bold;
 }
+
+.messages.error {
+  display: none !important;
+}
+
 h1,
 h2,
 h3,
