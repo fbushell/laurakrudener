@@ -19,7 +19,7 @@
 	      </li>
 	      <li id="nav-email">
 	      	<br>
-	      	<a href="mailto: laura@laurakrudener.com">laura@laurakrudener.com</a>
+	      	<a href="mailto: hello@laurakrudener.com">hello@laurakrudener.com</a>
 	      </li>	
 	    </ul>
 	  </div>
