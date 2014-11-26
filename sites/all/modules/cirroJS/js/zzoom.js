@@ -51,7 +51,6 @@
 	// Window load
 	$window.load(function(){
 		page.init();
-		$('body').removeClass('loading');
 	});
 
 }( jQuery, window, document));
