@@ -14,12 +14,18 @@
 			self.$infoToggle    = $('.info-toggle');
 			self.$toggleInfo    = $('.work-info');
 			self.$zoom          = $('.zoom');
+			self.$back					= $('.back-to-work');
 
 			self.initZoom();
 
 			self.$infoToggle.on('click', self.toggleInfo);
+			self.$back.on('click', self.workHistory);
 	},
 
+	workHistory: function() {
+		// use the window history to recover previous filter results
+		window.history.back();
+	},
 
 	toggleInfo: function() {
 		var self = page;
@@ -45,6 +51,7 @@
 	// Window load
 	$window.load(function(){
 		page.init();
+		$('body').removeClass('loading');
 	});
 
 }( jQuery, window, document));

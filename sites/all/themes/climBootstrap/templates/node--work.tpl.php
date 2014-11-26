@@ -1,3 +1,8 @@
+<div class="back-to-work">
+  <span class="triangle"></span>
+  <span>Work</span>
+</div>
+
 <div class="info-toggle">
   <span class="circle"></span>
   <span class="more">Information</span>

@@ -38,6 +38,7 @@ input[type=range]
   border: none
   margin: 0
   cursor: pointer
+  z-index: $z-modal - 50
   &:focus
     border: none
 
@@ -74,8 +75,22 @@ body
       max-width: 40%
       margin: 0 auto
       position: relative
-      z-index: $z-modal - 10
-      top: 100px
+      z-index: $z-2
+      top: 0
+    .back-to-work
+      position: fixed
+      top: 155px
+      left: 35px
+      z-index: $z-3
+      cursor: pointer
+      .triangle
+        display: inline-block
+        width: 0 
+        height: 0 
+        border-top: 6px solid transparent
+        border-bottom: 6px solid transparent 
+        border-right: 10px solid $black
+        margin-right: 7px 
     .page-content
       width: 100%
       margin: 0 auto
@@ -120,7 +135,7 @@ body
         max-width: 300px
         height: auto
         padding-bottom: 0
-        z-index: $z-2
+        z-index: $z-3
         transition: 300ms ease-out
         &.active
           visibility: visible

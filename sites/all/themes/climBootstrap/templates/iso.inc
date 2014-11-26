@@ -52,6 +52,9 @@
 	    case 'interior':
 	        $type = 'interior';
 	        break;
+	    case 'installation':
+	        $type = 'installation';
+	        break;
 	  }
 	  
 	  $img_styled = '';

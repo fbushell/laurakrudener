@@ -2,10 +2,10 @@
 
 <nav id="front-filters">
   <ul id="iso-filters">
-    <li><a href="#" class="selected" data-filter="*">All</a></li>
-    <li><a href="#painting" data-filter=".painting">Paintings</a></li>
-    <li><a href="#drawing" data-filter=".drawing">Drawings</a></li>
-    <li><a href="#interior" data-filter=".interior">Interiors</a></li>
+    <li><a href="#filter=%3Anot(.installation)" class="selected" >All</a></li>
+    <li><a href="#filter=.painting" >Paintings</a></li>
+    <li><a href="#filter=.drawing" >Drawings</a></li>
+    <li><a href="#filter=.installation" >Installation</a></li>
   </ul>
 </nav>
 	
