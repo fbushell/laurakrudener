@@ -3,8 +3,16 @@
   <span>Work</span>
 </div>
 
+<div class="range-zoom">
+<!--   <span class="circle"></span>
+  <span>Zoom</span><br> -->
+  <input type="range" />
+</div>
+
 <div class="info-toggle">
-  <span class="circle"></span>
+  <span class="toggle-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" data-ember-extension="1"><path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/><head/></svg>
+  </span>
   <span class="more">Information</span>
   <span class="less">Hide</span>
 </div>
@@ -94,7 +102,6 @@
 
 
       $img_final = "
-        <input type=\"range\" />
         <div class=\"zoom\">
           $img_styled_lrg
         </div>
