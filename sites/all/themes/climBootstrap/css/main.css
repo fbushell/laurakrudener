@@ -1204,7 +1204,7 @@ body.toolbar-drawer {
   font-size: 5rem;
   font-weight: 600; }
 .page-node-9 .half {
-  padding: 100px; }
+  padding: 6%; }
 .page-node-9 .container {
   max-width: 100%;
   padding: 100px 0;
@@ -1226,6 +1226,10 @@ body.toolbar-drawer {
   list-style: none; }
   .page-node-9 .cv-text ul li {
     margin-bottom: 8px; }
+    .page-node-9 .cv-text ul li a,
+    .page-node-9 .cv-text ul li a:visited {
+      color: #111;
+      border-bottom: 1px dotted; }
 
 .content:before, .content:after {
   content: " ";
@@ -1487,7 +1491,7 @@ body.page-node-9 .field-type-image {
   max-width: 500px;
   margin: 0 auto; }
 body.page-node-9 .page-content {
-  max-width: 100%;
+  max-width: 1700px;
   width: 100%; }
 body.page-node-9 .field-name-body {
   font-size: 1.5rem;
